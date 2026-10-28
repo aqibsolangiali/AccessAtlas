@@ -1,8 +1,7 @@
 # 🌍 AccessAtlas
 
 ### Make educational access gaps easier to explore — responsibly.
-[🚀 Live Demo](YOUR_STREAMLIT_APP_URL) · [💻 Source Code]([https://aqibsolangiali-accessatlas-app-0zuuk2.streamlit.app/])
-
+[🚀 Live Demo](https://aqibsolangiali-accessatlas-app-0zuuk2.streamlit.app/) · [💻 Source Code](https://github.com/aqibsolangiali/AccessAtlas)
 [![Python tests](https://img.shields.io/badge/tests-pytest-blue)](tests/test_analysis.py)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-3776ab)
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
