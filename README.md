@@ -1,88 +1,144 @@
 # 🌍 AccessAtlas
 
 ### Make educational access gaps easier to explore — responsibly.
-[🚀 Live Demo](https://aqibsolangiali-accessatlas-app-0zuuk2.streamlit.app/) · [💻 Source Code](https://github.com/aqibsolangiali/AccessAtlas)
-[![Python tests](https://img.shields.io/badge/tests-pytest-blue)](tests/test_analysis.py)
-![Python](https://img.shields.io/badge/Python-3.11%2B-3776ab)
-![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
-**AccessAtlas** is an interactive, open-source dashboard for examining the relationship between access to educational resources and learning outcomes. It helps students, researchers, and community organizations explore *descriptive* differences across groups without pretending that correlation proves causation.
+[🚀 **Live Demo**](https://aqibsolangiali-accessatlas-app-0zuuk2.streamlit.app/) · [💻 **Source Code**](https://github.com/aqibsolangiali/AccessAtlas) · [🐛 **Report an Issue**](https://github.com/aqibsolangiali/AccessAtlas/issues)
 
-> **Demo-data warning:** The bundled 480 records are entirely fictional and generated programmatically. They are **not** research findings, actual students, or evidence that a particular intervention works.
+![Python tests](https://github.com/aqibsolangiali/AccessAtlas/actions/workflows/tests.yml/badge.svg)
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB)
+![Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-FF4B4B)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
-## Features
+**AccessAtlas** is an interactive, open-source Python dashboard for exploring educational resource access and learning outcomes. It helps students, researchers, and community organizations examine descriptive differences between groups and ask better questions about educational inequality.
 
-- 📊 Interactive scores, attendance, internet access, and device-access metrics
-- 🗺️ Compare simulated regions and rural/urban settings
-- 🔎 Filter groups and inspect differences in mean assessment scores
-- 📁 Upload your own *de-identified* CSV using a documented schema
-- ⬇️ Export summarized group statistics
-- 🧪 Reproducible demo generator and automated tests
-- 🔒 No account or database required
+The project emphasizes responsible data exploration: observed differences do not automatically establish causation, and descriptive statistics alone cannot explain why gaps exist.
 
-## Quick start
+## 📸 Dashboard Preview
 
-Requires Python 3.11+.
+![AccessAtlas dashboard](assets/accessatlas-dashboard.png)
+
+*Explore simulated learner data, compare groups, and examine educational access indicators.*
+
+**Try it now:** [Open the live AccessAtlas dashboard](https://aqibsolangiali-accessatlas-app-0zuuk2.streamlit.app/)
+
+## ✨ Features
+
+- 📊 **Educational indicators:** Explore assessment scores, attendance, internet access, and device access.
+- 🗺️ **Group comparisons:** Compare simulated regions and rural/urban settings.
+- 🔎 **Interactive filters:** Examine differences in group averages and access rates.
+- 📁 **CSV uploads:** Analyze compatible, de-identified datasets using the documented schema.
+- ⬇️ **Summary exports:** Export summarized group statistics.
+- 🧪 **Automated testing:** Run reproducible tests locally and through GitHub Actions.
+- 🔒 **Simple setup:** Explore the included demo data without an account, database, or external API key.
+
+## 🚀 Quick Start
+
+You need Python 3.11 or later.
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/aqibsolangiali/AccessAtlas.git
 cd AccessAtlas
+```
+
+### 2. Create and activate a virtual environment
+
+```bash
 python -m venv .venv
-# macOS/Linux:
+```
+
+**Windows PowerShell**
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+**macOS or Linux**
+
+```bash
 source .venv/bin/activate
-# Windows PowerShell:
-# .venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+### 4. Run the dashboard
+
+```bash
 streamlit run app.py
 ```
 
-Or download this repository as ZIP from GitHub, extract it, and run the last two commands in the project folder.
+Streamlit will provide a local URL where you can open the application in your browser.
 
-## Try it instantly
+Alternatively, try the [hosted demo](https://aqibsolangiali-accessatlas-app-0zuuk2.streamlit.app/) without installing anything.
 
-The app loads 480 reproducible, fictional learner records by default. Select regions/settings to explore how group summaries change. No external dataset or API key is needed.
+## 🧪 Run the Tests
 
-## Data dictionary
-
-| Column | Description | Accepted values |
-|---|---|---|
-| `student_id` | Unique pseudonymous record key | Unique nonempty ID |
-| `region` | Grouping label | Nonempty text |
-| `setting` | Geographic context | Nonempty text (e.g., Rural, Urban) |
-| `internet_access` | Internet available | `yes` / `no` |
-| `device_access` | Device available | `yes` / `no` |
-| `study_hours_week` | Weekly study hours | 0–168 |
-| `attendance_pct` | Attendance rate | 0–100 |
-| `assessment_score` | Assessment outcome | 0–100 |
-
-Download a sample: [`data/sample_synthetic.csv`](data/sample_synthetic.csv).
-
-## How the analysis works
-
-- Access rates = percentage with `yes` access
-- Group averages = arithmetic mean for all selected rows
-- Score gap = mean score for `yes` minus mean score for `no`
-- Plots show raw distributions or aggregates only; no prediction or statistical significance is claimed
-- Scores are **not adjusted** for background differences or confounders
-
-### Ethics and limitations
-
-This is an educational demonstration, **not** an instrument for judging students, allocating resources, or asserting causal conclusions. The demo data includes intentionally generated associations. Real-world results require representative sampling, clear measurement definitions, research review, consent or other legal basis, privacy protections, and careful statistical analysis. Avoid uploading personal information; even pseudonyms may be linkable to individuals. Hosted deployment environments may process uploads on third-party infrastructure. Avoid reporting identifiable small groups.
-
-## Run tests
+Install the development dependencies:
 
 ```bash
 pip install -r requirements-dev.txt
+```
+
+Run the automated test suite:
+
+```bash
 python -m pytest -q
 ```
 
-GitHub Actions runs the tests on every push and pull request.
+GitHub Actions runs the configured test workflow on pushes and pull requests.
 
-## Folder structure
+## 📊 Demo Dataset
+
+AccessAtlas includes **480 synthetic learner records** generated programmatically. The dataset is fictional and is intended to demonstrate the dashboard's analytical features.
+
+No real students are represented in the bundled sample.
+
+### Data Dictionary
+
+| Column | Description | Accepted values |
+|---|---|---|
+| `student_id` | Unique record identifier | Unique, nonempty ID |
+| `region` | Region or grouping label | Nonempty text |
+| `setting` | Geographic context | For example, Rural or Urban |
+| `internet_access` | Internet availability | `yes` / `no` |
+| `device_access` | Device availability | `yes` / `no` |
+| `study_hours_week` | Weekly study hours | 0–168 |
+| `attendance_pct` | Attendance percentage | 0–100 |
+| `assessment_score` | Assessment score | 0–100 |
+
+Download the [sample synthetic dataset](data/sample_synthetic.csv).
+
+## 🔍 How the Analysis Works
+
+- **Access rates:** Percentage of selected records reporting access.
+- **Group averages:** Arithmetic means calculated for the selected records.
+- **Score gap:** Difference between the mean assessment scores of records with and without the specified access.
+- **Visualizations:** Show distributions or aggregated statistics to support exploration.
+
+These are descriptive analyses. Scores are not adjusted for confounding factors, and the project does not claim predictive accuracy, statistical significance, or causal effects.
+
+## 🛡️ Ethics, Privacy, and Limitations
+
+AccessAtlas is an educational demonstration, not a tool for judging individual students, allocating resources, or making high-stakes decisions.
+
+The synthetic data contains intentionally generated associations. These patterns are illustrative and should not be interpreted as real-world findings or evidence that an intervention works.
+
+Responsible real-world analysis requires appropriate sampling, clearly defined measures, suitable statistical methods, privacy protections, and applicable consent or other legal authorization.
+
+**Protect personal data:** Avoid uploading identifiable or sensitive information. Pseudonymous records may still be linkable to individuals, and hosted applications may process uploaded files on third-party infrastructure. Exercise caution when interpreting or sharing results for small groups.
+
+## 📁 Project Structure
 
 ```text
-accessatlas/
-├── app.py
+AccessAtlas/
+├── .github/
+│   └── workflows/
+│       └── tests.yml
 ├── accessatlas/
 │   ├── __init__.py
 │   ├── analysis.py
@@ -91,22 +147,35 @@ accessatlas/
 │   └── sample_synthetic.csv
 ├── tests/
 │   └── test_analysis.py
-├── .github/workflows/tests.yml
+├── app.py
 ├── requirements.txt
 ├── requirements-dev.txt
 ├── .gitignore
+├── DEPLOY.md
 ├── LICENSE
 └── README.md
 ```
 
-## Potential extensions
+## 🔮 Potential Extensions
 
-- Compare groups with confidence intervals when sample sizes permit
-- Add clear visual uncertainty indicators and small-group suppression
-- Support multi-year longitudinal analyses
-- Add language localization and accessibility testing
-- Conduct a rigorously reviewed real-world pilot with a faculty mentor
+- Add confidence intervals where sample sizes and assumptions permit.
+- Improve uncertainty visualization and suppression of small groups.
+- Support longitudinal comparisons across multiple years.
+- Add language localization and accessibility testing.
+- Explore a rigorously reviewed real-world pilot with an appropriate research partner.
 
-## About
+These are possible future improvements, not features currently claimed as complete.
 
-Designed as a portfolio project at the intersection of **computer science, education, and community impact**. Contributions and feedback are welcome. MIT licensed.
+## 👋 About
+
+AccessAtlas is a portfolio project exploring the intersection of **technology, education, and social impact**.
+
+The project aims to make educational access indicators easier to explore while encouraging careful interpretation, responsible data use, and evidence-informed questions.
+
+Contributions, suggestions, and feedback are welcome.
+
+**License:** MIT. See [LICENSE](LICENSE) for details.
+
+---
+
+[🚀 Try AccessAtlas](https://aqibsolangiali-accessatlas-app-0zuuk2.streamlit.app/) · [💻 View the repository](https://github.com/aqibsolangiali/AccessAtlas)
